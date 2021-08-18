@@ -1,0 +1,37 @@
+from django.urls import path, include
+from . import views as eduskills_views
+from django.contrib.auth import views as auth_views
+
+urlpatterns = [
+    path('', eduskills_views.index, name="index"),
+    path('news/', eduskills_views.news, name="news"),
+    path('news/<int:id>', eduskills_views.news, name="news"),
+    path('course_detail/', eduskills_views.course_detail, name="course_detail"),
+    path('course_detail/<int:ist>', eduskills_views.course_detail, name="course_detail"),
+    path('course_detail/<int:ist>/<int:secondid>', eduskills_views.course_detail, name="course_detail"),
+    path('mcqspdf/', eduskills_views.mcqspdf, name="mcqspdf"),
+    path('mcqspdf/<str:path>/', eduskills_views.mcqspdf, name='mcqspdf'),
+    path('blogs/', eduskills_views.blogposts, name='blogs'),
+    path('blogdetail/', eduskills_views.blogdetail, name='blogdetail'),
+    path('blogdetail/<int:id>/', eduskills_views.blogdetail, name='blogdetail'),
+    path('9thclass/', eduskills_views.nineclass, name='9thclass'),
+    path('10thclass/', eduskills_views.tenclass, name='10thclass'),
+    path('11thclass/', eduskills_views.elevenclass, name='11thclass'),
+    path('12thclass/', eduskills_views.twelveclass, name='12thclass'),
+    path('computerbooks/', eduskills_views.computerbooks, name='computerbooks'),
+    path('programmingbooks/', eduskills_views.programmingbooks, name='programmingbooks'),
+    path('knowledgebooks/', eduskills_views.knowledgebooks, name='knowledgebooks'),
+    path('studybooks/', eduskills_views.studybooks, name='studybooks'),
+    path('englishnotes/', eduskills_views.Englishnotes, name='englishnotes'),
+    path('urdu/', eduskills_views.Urdu, name='urdu'),
+    path('knowledgenotes/', eduskills_views.knowledgenotes, name='knowledgenotes'),
+    path('singlebook/', eduskills_views.singlebook, name='singlebook'),
+    path('singlebook/<int:pk>', eduskills_views.singlebook, name='singlebook'),
+    path('download/<str:filename>/', eduskills_views.download_file, name='download'),
+    path('', auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
+    path('logout/', eduskills_views.logout, name='logout'),
+    path('login/', eduskills_views.login, name='login'),
+    path('signup/', eduskills_views.signup, name="signup"),
+    path('aboutus/', eduskills_views.AboutUs, name="aboutus"),
+    path('contactus/', eduskills_views.ContactUs, name="contactus"),
+]

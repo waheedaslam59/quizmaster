@@ -1,0 +1,53 @@
+{% extends 'eduskills/base.html' %}
+{% load static %}
+{% load mytags %}
+    {% block title %} Computer Books | WOS{% endblock %}
+    {% block container %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Computer Related Books</h3>
+            <p>Download free books and learn for your bright future. You don't need money, just focus on your dreams and keep moving towards.</p><br><br>
+            {% for i in page_obj %}
+            <div class="col-xs-18 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src="/{{i.book_image}}" alt="">
+              <div class="caption">
+                <p>{{i.title}}</p>
+                <p><a href="{% url 'download' filename=i.bookpdf|mytags %}" class="btn btn-primary btn-xs" role="button">Download</a><br>
+                    <a href="{% url 'singlebook' i.id %}" class="btn btn-default btn-xs" role="button">Details</a></p>
+            </div>
+          </div>
+        </div>
+<!--            <div class="col-md-3">-->
+<!--           <img src="/{{i.book_image}}" alt="not show" class="img-thumbnail">-->
+<!--            <p>{{i.title}}</p>-->
+<!--            <a href="download" class="btn btn-primary">Download</a>-->
+<!--                </div>-->
+        {% endfor %}
+
+            <!-- Pagination -->
+				<div class="pagination pull-right">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" type="submit" class="btn btn-default btn-sm">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}" type="submit" class="btn btn-default btn-sm">Previous</a>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" type="submit" class="btn btn-default btn-sm">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" type="submit" class="btn btn-default btn-sm">Last &raquo;</a>
+        {% endif %}
+    </span><br><br>
+				<span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+</div>
+			<!-- Pagination end-->
+</div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
+{% endblock %}

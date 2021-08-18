@@ -1,0 +1,352 @@
+{% extends 'eduskills/base.html' %}
+{% load static %}
+    {% block title %} Course Detail | WOS{% endblock %}
+
+    {% block container %}
+			<!--Banner Wrap End-->
+		    <!--Iqoniq Content Wrap Start-->
+		    <div class="iq_content_wrap">
+				<!--coures_single_page START-->  
+				<section class="coures_single_page">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8">
+								<!--course_single_heading START-->  
+								<div class="course_single_heading">
+									<!--Heading Wrap Start-->
+		                            <div class="iq_heading_1 text-left">
+										<div class="form-group">
+										<label for=""><h2>Course Finder</h2></label>
+											<table class="table" style="border: 1px solid; background-color: #e79800;">
+												 <thead>
+												<tr>
+										<td scope="col">
+											<label for="">Course Type</label>
+											<select name="select" id="ds" class="form-control">
+												<option>select type</option>
+												{% for j in programs %}
+												{% ifequal pkid j.id %}
+											<option selected value="{{j.id}}">{{j.Category_name}}</option>
+												{% else %}
+												<option value="{{j.id}}">{{j.Category_name}}</option>
+
+												{% endifequal %}
+												{% endfor %}
+										</select></td>
+												<td scope="col">
+													<label for="">Study Level</label>
+													<select name="select" id="fdf" class="form-control">
+											<option>select level</option>
+											<option>hello</option>
+											<option>hello</option>
+													</select>
+												</td>
+													<td scope="col">
+														<label for="">Courses</label>
+														<select name="select" id="" class="form-control">
+											<option>select course</option>
+											<option>hello</option>
+											<option>hello</option>
+										</select></td>
+													<td scope="col">
+														<label for="">City</label>
+														<select name="select" id="" class="form-control">
+											<option>select city</option>
+											<option>hello</option>
+											<option>hello</option>
+										</select></td>
+												</tr>
+												 </thead>
+												</table>
+											</div>
+		                            </div>
+
+		                            <!--Heading Wrap End-->
+									<!--courses_socil START-->
+									<ul class="iq_footer_social">
+										<li>
+											<a href="#"><i class="fa fa-facebook"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="fa fa-twitter"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="fa fa-envelope"></i></a>
+										</li>
+									</ul>
+									<!--courses_socil end-->
+									<!--course_comments START-->
+									<ul class="course_comments">
+										<li>
+											<a href="#"><i class="fa fa-clock-o"></i>Nov 2015</a>
+										</li>
+										<li>
+											<a href="#"><i class="fa fa-user"></i>Nov 2015</a>
+										</li>
+										<li>
+											<a href="#"><i class="fa fa-comments-o"></i>Nov 2015</a>
+										</li>
+									</ul>
+									<!--course_comments end-->
+								</div>
+								<table class="table table">
+									<tr>
+										<th>Courses</th>
+										<th>Universities</th>
+									<th>Admissions</th>
+									<th>Career Scope</th>
+									</tr>
+
+									{% for i in courses %}
+
+									<tr>
+
+										<td scope="col">
+											{{i.program_name}}
+										</td>
+										<td>
+											<a href="{% url 'course_detail' ist=pkid secondid=i.id  %}"><button class="btn btn-primary">Universities</button>
+										</a>
+										</td>
+										<td>
+											<button class="btn btn-primary">Admissions</button>
+										</td>
+										<td>
+											<button class="btn btn-primary">Career Scope </button>
+										</td>
+									</tr>
+									{% endfor %}
+
+
+								</table>
+								<!--course_single_heading end-->
+							</div>
+							<div class="col-md-4">
+								<div class="aside-bar">
+									<!--course_inrp_side_search START-->
+									<div class="widget widget-search">
+										<form class="iq-input">
+		                                    <input placeholder="Search ..." type="text">
+		                                    <label class="iq-input-icon"><input type="submit"></label>
+		                                </form>
+									</div>
+									<!--course_inrp_side_search end-->
+									<!--course_inrp_side_description START-->
+									<div class="widget course-description">
+										<!--Widget Title Start-->
+		                                <h5 class="widget-title"><span>university</span> DESCRIPTION</h5>
+		                                <!--Widget Title End-->
+										<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. </p>
+										<ul class="course-lesson-list">
+											<li>
+												<a href="#">
+													<span class="icon-level-up-arrow"></span>
+												Level</a>
+												Intermediate
+											</li>
+											<li>
+												<a href="#">
+													<span class="icon-signs">
+									                	<span class="path1"></span>
+									                	<span class="path2"></span>
+									                	<span class="path3"></span>
+									                	<span class="path4"></span>
+									                	<span class="path5"></span>
+									                	<span class="path6"></span>
+									                	<span class="path7"></span>
+									                	<span class="path8"></span>
+									                	<span class="path9"></span>
+									                	<span class="path10"></span>
+									                	<span class="path11"></span>
+									                	<span class="path12"></span>
+									                	<span class="path13"></span>
+									                	<span class="path14"></span>
+									                	<span class="path15"></span>
+									                </span>
+												Length</a>
+												9 Weeks
+											</li>
+											<li>
+												<a href="#">
+													<span class="icon-translate">
+									                	<span class="path1"></span>
+									                	<span class="path2"></span>
+									                	<span class="path3"></span>
+									                	<span class="path4"></span>
+									                	<span class="path5"></span>
+									                </span>
+												Language</a>
+												English
+											</li>
+											<li>
+												<a href="#">
+													<span class="icon-home">
+									                	<span class="path1"></span>
+									                	<span class="path2"></span>
+									                	<span class="path3"></span>
+									                </span>
+								                Institution</a>
+												lorem Ipsum
+											</li>
+										</ul>
+									</div>
+									<!--course_inrp_side_description end-->
+									<!--coures_instractor_area START-->
+									<div class="widget coures_instractor_area">
+										<div class="instractor_heading">
+											<h5><a href="#">Enroll This Course</a></h5>
+										</div>
+										<h5><a href="#">INSTRUCTORS</a></h5>
+										<div class="coures_instractor_thumb">
+											<figure>
+												<img src="extra-images/instractor.jpg" alt=""/>
+											</figure>
+											<div class="thumb_capstion">
+												<h5><a href="#">Jonatahan James</a></h5>
+												<p>Teacher of Computer</p>
+											</div>
+										</div>
+									</div>
+									<!--coures_instractor_area end-->
+									<!--coures_archives start-->
+									<div class="widget widget_archive">
+										<!--Widget Title Start-->
+		                                <h5 class="widget-title"><span>our</span> Course</h5>
+		                                <!--Widget Title End-->
+										<ul>
+											<li>
+												<a href="#">Politics & History</a><span>03</span>
+											</li>
+											<li>
+												<a href="#">Journalism</a><span>01</span>
+											</li>
+											<li>
+												<a href="#">Medical Sciences</a><span>03</span>
+											</li>
+											<li>
+												<a href="#">Health</a><span>01</span>
+											</li>
+											<li>
+												<a href="#">Sports</a><span>03</span>
+											</li>
+											<li>
+												<a href="#">Atrs</a><span>02</span>
+											</li>
+											<li>
+												<a href="#">Tourism & Culture</a><span>06</span>
+											</li>
+										</ul>
+									</div>
+									<!--coures_archives end-->
+									<!--COURES CATEGORIES START-->
+									<div class="widget widget_time">
+										<!--Widget Title Start-->
+		                                <h5 class="widget-title"><span>working</span> hours</h5>
+		                                <!--Widget Title End-->
+										<ul>
+											<li>
+												<span>Monday</span>08:30 am - 05:30 pm
+											</li>
+											<li>
+												<span>Tuesday</span>08:30 am - 05:30 pm
+											</li>
+											<li>
+												<span>Wednesday</span>08:30 am - 05:30 pm
+											</li>
+											<li>
+												<span>Thursday</span>08:30 am - 05:30 pm
+											</li>
+											<li>
+												<span>Friday</span>08:30 am - 05:30 pm
+											</li>
+											<li>
+												<span>Saturday</span>Closed
+											</li>
+											<li>
+												<span>Sunday</span>Closed
+											</li>
+										</ul>
+									</div>
+									<!--COURES CATEGORIES END-->
+									<!--POPULAR START-->
+									<div class="widget widget-popular">
+										<!--Widget Title Start-->
+		                                <h5 class="widget-title"><span>popular</span>courses</h5>
+		                                <!--Widget Title End-->
+										<!--POPULAR THUMB START-->
+										<div class="popular_thumb">
+											<figure>
+												<img src="extra-images/popular-thumb5.jpg" alt=""/>
+											</figure>
+											<!--COURES POPULAR CAPSTION START-->
+											<div class="overflow-text">
+												<h6><a href="#">Professional Teching Course</a></h6>
+												<!--RATING AREA START-->
+												<div class="rating-wrap">
+	                                                <div class="rating_down">
+	                                                    <div class="rating_up" style="width:100%;"></div>
+	                                                </div>
+	                                            </div>	
+	                                            <!--RATING AREA End-->							
+												<p>Anna Doe</p>
+												<span>$99.99</span>
+												<!--COURES RATING AREA END-->
+											</div>
+											<!--COURES POPULAR CAPSTION END-->
+										</div>
+										<!--POPULAR THUMB END-->
+										<!--POPULAR THUMB START-->
+										<div class="popular_thumb">
+											<figure>
+												<img src="extra-images/popular-thumb2.jpg" alt=""/>
+											</figure>
+											<!--COURES POPULAR CAPSTION START-->
+											<div class="overflow-text">
+												<h6><a href="#">Professional Teching Course</a></h6>
+												<!--RATING AREA START-->
+												<div class="rating-wrap">
+	                                                <div class="rating_down">
+	                                                    <div class="rating_up" style="width:100%;"></div>
+	                                                </div>
+	                                            </div>	
+	                                            <!--RATING AREA End-->							
+												<p>Anna Doe</p>
+												<span>$99.99</span>
+												<!--COURES RATING AREA END-->
+											</div>
+											<!--COURES POPULAR CAPSTION END-->
+										</div>
+										<!--POPULAR THUMB END-->
+										<!--POPULAR THUMB START-->
+										<div class="popular_thumb">
+											<figure>
+												<img src="extra-images/popular-thumb3.jpg" alt=""/>
+											</figure>
+											<!--COURES POPULAR CAPSTION START-->
+											<div class="overflow-text">
+												<h6><a href="#">Professional Teching Course</a></h6>
+												<!--RATING AREA START-->
+												<div class="rating-wrap">
+	                                                <div class="rating_down">
+	                                                    <div class="rating_up" style="width:100%;"></div>
+	                                                </div>
+	                                            </div>	
+	                                            <!--RATING AREA End-->							
+												<p>Anna Doe</p>
+												<span>$99.99</span>
+											</div>
+											<!--COURES POPULAR CAPSTION END-->
+										</div>
+										<!--POPULAR THUMB END-->
+									</div>
+									<!--POPULAR END-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!--coures_single_page end-->
+			</div>
+			<!--Iqoniq Content Wrap End-->
+
+{% endblock %}

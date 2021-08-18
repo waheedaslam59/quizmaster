@@ -1,0 +1,271 @@
+{% extends 'eduskills/base.html' %}
+{% load static %}
+{% load mytags %}
+    {% block title %} Book Detail | WOS{% endblock %}
+    {% block container %}
+
+<!-- start main content -->
+	<!-- start of page content -->
+
+	<div class="lookcare-product-single container">
+
+		<div class="row">
+
+			<div class="main col-xs-12" role="main">
+
+				<div class=" product">
+
+					<div class="row">
+
+						<div class="col-md-5 col-sm-6 summary-before ">
+
+							<div class="product-slider product-shop">
+								<ul class="">
+									<li data-thumb="/{{fetchbook.book_image}}">
+										<a href="/myalbum/{{productdetail.image}}" data-imagelightbox="gallery" class="hoodie_7_front">
+											<img src="/{{fetchbook.0.book_image}}" style="height:300px;width:300px;" class="attachment-shop_single" alt="image">
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-md-7 product-review entry-summary">
+							<br>
+							<h3 class="product_title">{{fetchbook.0.title}}</h3>
+
+							<div class="woocommerce-product-rating">
+								<div class="star-rating" title="Rated 4.00 out of 5">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-o"></i>
+								</div>
+								<a href="#reviews" class="woocommerce-review-link">(<span class="count">3</span> customer reviews)</a>
+							</div>
+
+							<div>
+								<p class="price"><del><span class="amount"></span></del>
+									<ins><span class="amount">Free*</span></ins></p>
+							</div>
+
+
+							<form class="variations_form cart" method="post">
+<!--								<div class="quantity">-->
+<!--									<input type="number" step="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" min="1">-->
+<!--								</div>-->
+								<span>ISBN: </span><span>{{fetchbook.0.isbn}}</span><br>
+								<span>Author: </span><span>{{fetchbook.0.author}}</span><br>
+								<span>Published: </span><span>{{fetchbook.0.published_year}}</span><br><br>
+								{% if user.is_authenticated %}
+								<a href="{% url 'download' filename=fetchbook.0.bookpdf|mytags %}" target="_blank" class="btn btn-primary">Download</a>
+								{% else %}
+
+								<a href="{% url 'login' %}" class="cart-button">Download</a>
+
+								{% endif %}
+							</form>
+
+							<div class="product_meta">
+
+
+
+<!--								<span class="sku_wrapper">SKU: <span class="sku">{{productdetail.ISBN}}</span>.</span>-->
+
+
+<!--								<span class="posted_in">Categories: <a href="#" rel="tag">Clothing</a>, <a href="#">Hoodies</a>.</span>-->
+
+
+							</div>
+
+							<div class="share-social-icons">
+
+								<a href="#" target="_blank" title="Share on Facebook">
+									<i class="fa fa-facebook"></i>
+								</a>
+								<a href="#" target="_blank" title="Share on Twitter">
+									<i class="fa fa-twitter"></i>
+								</a>
+								<a href="#" target="_blank" title="Pin on Pinterest">
+									<i class="fa fa-pinterest"></i>
+								</a>
+								<a href="#" target="_blank" title="Share on Google+">
+									<i class="fa fa-google-plus"></i>
+								</a>
+							</div>
+
+						</div>
+						<!-- .summary -->
+
+					</div>
+
+					<div class="wrapper-description">
+
+						<ul class="tabs-nav clearfix">
+							<li class="active">Description</li>
+							<li>Review (3)</li>
+						</ul>
+						<div class="tabs-container product-comments">
+
+							<div class="tab-content">
+								<section class="related-products">
+
+									<h2>Product Description</h2>
+
+									<p>{{productdetail.discription}}</p>
+
+									<h3 class="section-title">Related Products</h3>
+
+									<div class="related-products-wrapper">
+
+										<div class="related-products-carousel">
+
+											<div class="product-control-nav">
+												<a class="prev"><i class="fa fa-angle-left"></i></a>
+												<a class="next"><i class="fa fa-angle-right"></i></a>
+											</div>
+
+											<div class="products-top"></div>
+											<div class="row product-listing">
+												<div id="product-carousel" class="product-listing">
+
+													{% for j in related %}
+													<div class="product  item first ">
+
+														<article>
+
+															<figure>
+																<a href="#">
+																	<img src="/myalbum/{{j.image}}" style="height:200px;width:100%;" class="img-responsive" alt="">
+																</a>
+																<figcaption><span class="amount">${{j.price}}</span></figcaption>
+															</figure>
+
+															<h4 class="title"><a href="#">{{j.title}}</a></h4>
+
+
+															<a href="#" class="button-add-to-cart">Add to cart</a>
+														</article>
+
+													</div>
+													{% endfor %}
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+
+								</section>
+							</div>
+
+
+
+<!--							<div class="tab-content">-->
+<!--								<div class="panel entry-content">-->
+
+<!--									<h2>Product Description</h2>-->
+
+<!--									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>-->
+<!--								</div>-->
+
+								<div class="panel entry-content">
+
+									<div id="reviews">
+										<div class="row">
+											<div class="col-md-6">
+												<div id="comments">
+													<h2>Reviews</h2>
+
+													<ol class="commentlist">
+
+														<!-- #comment-## -->
+
+														<!-- #comment-## -->
+														{% for k in allreviews %}
+														<li class="comment depth-1">
+
+															<div class="comment_container">
+
+																<img src="/myalbum/myalbum/images/profile.png" alt="image" class="avatar photo">
+																<div class="comment-text">
+
+																	<div class="star-rating" title="Rated 3 out of 5">
+																	</div>
+
+																	<p class="meta">
+                                                                            <span class="star-rating" title="Rated 4.00 out of 5">
+																				<i class="fa fa-star"></i>
+																				<i class="fa fa-star"></i>
+																				<i class="fa fa-star"></i>
+																				<i class="fa fa-star"></i>
+																				<i class="fa fa-star"></i>
+																			</span>
+																		<strong>{{k.name}}</strong> – <time datetime="{{k.posted_date}}">{{k.posted_date}}</time>:
+																	</p>
+
+
+																	<div class="description">
+																		<p>{{k.feedback}}</p>
+																	</div>
+																</div>
+															</div>
+														</li>
+														{% endfor %}
+														<!-- #comment-## -->
+													</ol>
+
+
+												</div>
+
+											</div>
+											<div class="col-md-6">
+												<div id="review_form_wrapper">
+													<div id="review_form">
+														<div id="respond" class="comment-respond">
+															<h3 class="comment-reply-title">Add a review </h3>
+															<form method="post" id="commentform" class="comment-form">
+																{% csrf_token %}
+																<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text"></p>
+																<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text"></p>
+																<p class="comment-form-comment"><label for="comment">Your Review</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>
+																<p class="form-submit">
+																	<input name="submit" type="submit" id="submit" class="submit" value="Submit">
+																</p>
+															</form>
+														</div>
+														<!-- #respond -->
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="clear"></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+
+
+
+
+				</div>
+				<!-- #product-293 -->
+
+
+
+			</div>
+			<!-- end of main -->
+
+		</div>
+		<!-- end of .row -->
+
+<!-- service area -->
+<!-- end service area -->
+{% endblock %}
+<!-- end main content -->

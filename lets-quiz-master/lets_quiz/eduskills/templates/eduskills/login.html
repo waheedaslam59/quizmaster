@@ -1,0 +1,30 @@
+{% extends 'eduskills/base.html' %}
+{% block title %}WOS - Login{% endblock %}
+{% block container %}
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+      <h1 class="text-center">Login Here</h1>
+      <br>
+      <form method="post" action="">
+    {% csrf_token %}
+        <input type="hidden" id="previous_page" name="previous_page"
+    value="/previous/page/url">
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-secondary">Login</button>
+        <a href="{% url 'signup' %}" class="btn btn-secondary pull-right">Register</a>
+        <small class="pull-right mx-2" style="padding-top:10px;">Not have account??</small>
+  </form>
+    </div>
+  </div>
+  <br>
+  </div>
+{% endblock %}
+{% block footer %}
+<script>
+    prev = document.getElementById("previous_page");
+    prev.value = document.referrer;
+</script>
+{% endblock %}
