@@ -1,0 +1,44 @@
+{% extends 'eduskills/base.html' %}
+{% load static %}
+{% load mytags %}
+    {% block title %} Events | WOS{% endblock %}
+    {% block container %}
+        <div class="iq_wrapper">
+<section class="iq_upcomming_bg">
+                	<div class="container">
+                        <!--Heading Wrap Start-->
+                    	<div class="iq_heading_1 text-center">
+                        	<h4>Up Coming <span>Events</span></h4>
+                            <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
+                            <br>lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
+                        </div>
+                        <!--Heading Wrap End-->
+                        <!--Upcomming List Wrap Start-->
+                        <div class="row">
+                            <!--UpComming Event Start-->
+                            {% for e in newevents %}
+                        	<div class="col-md-4 col-sm-3">
+                                <div style="height:350px;">
+                                <div class="iq_upcomming_event">
+                                    <figure>
+                                        <img src="/{{e.event_image}}" style="height:350px;" alt="Image Here">
+                                    </figure>
+                                    <div class="iq_upcomming_des">
+                                        <span>{{e.From_DateTime|date}}</span>
+                                        <p>{{e.From_DateTime|time}}</p>
+                                        <h5><a href="{% url 'eventdetail' e.id %}">{{e.title|truncatewords:5}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            {% endfor %}
+                            <!--UpComming Event End-->
+                        </div>
+                        <!--Upcomming List Wrap End-->
+                    </div>
+                </section>
+            <!--Contact Info Wrap Start-->
+        </div>
+{% endblock %}
+        <!--iqoniq Wrapper End-->
+        <!--Javascript Library-->

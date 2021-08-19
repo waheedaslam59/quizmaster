@@ -34,4 +34,7 @@ urlpatterns = [
     path('signup/', eduskills_views.signup, name="signup"),
     path('aboutus/', eduskills_views.AboutUs, name="aboutus"),
     path('contactus/', eduskills_views.ContactUs, name="contactus"),
+    path('eventcalender/', eduskills_views.Event, name="eventcalender"),
+    path('eventdetail/', eduskills_views.EventDetail, name="eventdetail"),
+    path('eventdetail/<int:id>/', eduskills_views.EventDetail, name="eventdetail"),
 ]

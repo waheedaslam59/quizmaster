@@ -103,13 +103,15 @@ Book_Choices = (
 class FreeBooks(models.Model):
     book_category = models.ForeignKey(BooksCategory, on_delete=models.CASCADE)
     title = models.CharField(max_length=1000)
-    Booksnotes = models.CharField(max_length=20,choices=Book_Choices, default='Books')
+    Booksnotes = models.CharField(max_length=20, choices=Book_Choices, default='Books')
     author = models.CharField(max_length=500)
     isbn = models.CharField(max_length=300)
     published_year = models.CharField(max_length=200)
+    book_description = models.TextField(default='')
     book_image = models.ImageField(upload_to='edustatic/images/', validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])])
     bookpdf = models.FileField(upload_to='edustatic/pdf/', validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
     uploaded_date = models.DateTimeField(auto_now_add=True)
+    featured = models.BooleanField(default=False)
 
     def filename(self):
         return os.path.basename(self.bookpdf.name)
@@ -161,3 +163,19 @@ class StudentsToped(models.Model):
 
     def __str__(self):
         return '{} Toped by {}'.format(self.student_name, self.toped_year)
+
+
+class ComingEvents(models.Model):
+    title = models.CharField(max_length=700)
+    From_DateTime = models.DateTimeField()
+    To_DateTime = models.DateTimeField()
+    body = models.TextField()
+    Host_name = models.CharField(max_length=900)
+    Contact_info = models.IntegerField()
+    Host_Email = models.EmailField()
+    uploaded_date = models.DateTimeField(auto_now_add=True)
+    location = models.CharField(max_length=700)
+    event_image = models.ImageField(upload_to='edustatic/images/', validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])])
+
+    def __str__(self):
+        return '{} Toped by {}'.format(self.title, self.From_DateTime)

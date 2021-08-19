@@ -1,0 +1,344 @@
+{% extends 'eduskills/base.html' %}
+{% load static %}
+{% load mytags %}
+    {% block title %} Event Detail | WOS{% endblock %}
+    {% block container %}
+		<!--iqoniq Wrapper Start-->  
+		<div class="iq_wrapper">
+		    <!--Header Wrap Start-->
+
+			<!--Header Wrap End-->
+		    <!--Banner Wrap Start-->
+			<div class="iner_banner ent_detail">
+				<div class="container">
+					<h5>event - Detail</h5>
+					<div class="banner_iner_capstion">
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#"> Event - Detail</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		    <!--Banner Wrap End-->
+		    <!--iqoniq Content Start-->
+		    <div class="iq_content_wrap">
+				<section>
+					<div class="event-page">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-8">
+									<div class="event_pg_blog">
+										<figure>
+											<img src="/{{newevents.0.event_image}}" alt=""/>
+										</figure>
+										<div class="fig_caption link">
+											<span>{{newevents.0.From_DateTime|date}}</span>
+											<a href="#"><i class="fa fa-user"></i>by admin</a>
+										</div>
+										<!--Heading Wrap Start-->
+			                            <div class="iq_heading_1 text-left">
+			                                <h4>{{newevents.0.title}}</h4>
+			                            </div>
+			                            <!--Heading Wrap End-->
+										<ul class="course_comments">
+											<li>
+												<label>From: </label>
+												<a href="#"><i class="fa fa-clock-o"></i>{{newevents.0.From_DateTime}}</a>
+											</li>
+											<li>
+												<label>To: </label>
+												<a href="#"> <i class="fa fa-clock-o"></i> {{newevents.0.To_DateTime}}</a>
+											</li>
+										</ul>
+										<p>{{newevents.0.body|linebreaks}}</p>
+										<h5>For tickets and more details please contact with Event Manager </h5>
+										<br>
+										<p>Event Hosted by: <span>{{newevents.0.Host_name}}</span></p>
+										<p>Contact Detail: <span>{{newevents.0.Contact_info}}</span></p>
+										<p>Host Email: <span>{{newevents.0.Host_Email}}</span></p>
+										<p>Event Location: <span>{{newevents.0.location}}</span></p>
+										<!--coures_border end-->
+										<div class="edu_upmg_area">
+											<!--Heading Wrap Start-->
+				                            <div class="iq_heading_1 text-left">
+				                                <h4>Upcoming <span>Events</span></h4>
+				                            </div>
+				                            <div class="row">
+					                            <!--Heading Wrap End-->
+												<div class="col-md-6 col-sm-6">
+													<div class="iq_course_list">
+					                                    <figure>
+					                                        <img src="extra-images/featured-course-02.jpg" alt="Image Here"> 	
+					                                    </figure>
+					                                    <div class="iq_course_list_des">
+					                                        <div class="iq_course_icon">
+					                                            <span class="icon-student">
+					                                                <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span>
+					                                            </span>
+					                                        </div>
+					                                        <h5><a href="#">Business & Finance</a></h5>
+					                                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum </p>
+					                                        <ul>
+					                                            <li>
+					                                                <!--RATING AREA START-->
+					                                                <div class="rating_down">
+					                                                    <div class="rating_up" style="width:100%;"></div>
+					                                                </div>
+					                                                <!--RATING AREA End-->  
+					                                            </li>
+					                                            <li>101 Reviews</li>
+					                                            <li><i class="fa fa-user"></i>3.1 k</li>
+					                                        </ul>
+					                                    </div>
+					                                </div>
+												</div>
+												<div class="col-md-6 col-sm-6">
+													<div class="iq_course_list">
+					                                    <figure>
+					                                        <img src="extra-images/featured-course-1.jpg" alt="Image Here"> 	
+					                                    </figure>
+					                                    <div class="iq_course_list_des">
+					                                        <div class="iq_course_icon">
+					                                            <span class="icon-student">
+					                                                <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span>
+					                                            </span>
+					                                        </div>
+					                                        <h5><a href="#">Computer &amp; IT Courses</a></h5>
+					                                        <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum </p>
+					                                        <ul>
+					                                            <li>
+					                                                <!--RATING AREA START-->
+					                                                <div class="rating_down">
+					                                                    <div class="rating_up" style="width:100%;"></div>
+					                                                </div>
+					                                                <!--RATING AREA End-->  
+					                                            </li>
+					                                            <li>101 Reviews</li>
+					                                            <li><i class="fa fa-user"></i>3.1 k</li>
+					                                        </ul>
+					                                    </div>
+					                                </div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="aside-bar">
+										<!--course_inrp_side_search START-->
+										<div class="widget widget-search">
+											<form class="iq-input">
+			                                    <input placeholder="Search ..." type="text">
+			                                    <label class="iq-input-icon"><input type="submit"></label>
+			                                </form>
+										</div>
+										<!--course_inrp_side_search end-->
+										<!--coures_archives start-->
+										<div class="widget widget_archive">
+											<!--Widget Title Start-->
+			                                <h5 class="widget-title"><span>our</span> Course</h5>
+			                                <!--Widget Title End-->
+											<ul>
+												<li>
+													<a href="#">Politics & History</a><span>03</span>
+												</li>
+												<li>
+													<a href="#">Journalism</a><span>01</span>
+												</li>
+												<li>
+													<a href="#">Medical Sciences</a><span>03</span>
+												</li>
+												<li>
+													<a href="#">Health</a><span>01</span>
+												</li>
+												<li>
+													<a href="#">Sports</a><span>03</span>
+												</li>
+												<li>
+													<a href="#">Atrs</a><span>02</span>
+												</li>
+												<li>
+													<a href="#">Tourism & Culture</a><span>06</span>
+												</li>
+											</ul>
+										</div>
+										<!--coures_archives end-->
+										<!--POPULAR START-->
+										<div class="widget widget-popular">
+											<!--Widget Title Start-->
+			                                <h5 class="widget-title"><span>popular</span>courses</h5>
+			                                <!--Widget Title End-->
+											<!--POPULAR THUMB START-->
+											<div class="popular_thumb">
+												<figure>
+													<img src="extra-images/popular-thumb1.jpg" alt=""/>
+												</figure>
+												<!--COURES POPULAR CAPSTION START-->
+												<div class="overflow-text">
+													<h6><a href="#">Neque porro quisquam est qui dolorem  dolor</a></h6>
+													<p>19 Dec, 2015</p>
+												</div>
+												<!--COURES POPULAR CAPSTION END-->
+											</div>
+											<!--POPULAR THUMB END-->
+											<!--POPULAR THUMB START-->
+											<div class="popular_thumb">
+												<figure>
+													<img src="extra-images/popular-thumb2.jpg" alt=""/>
+												</figure>
+												<!--COURES POPULAR CAPSTION START-->
+												<div class="overflow-text">
+													<h6><a href="#">Neque porro quisquam est qui dolorem  dolor</a></h6>
+													<p>19 Dec, 2015</p>
+												</div>
+												<!--COURES POPULAR CAPSTION END-->
+											</div>
+											<!--POPULAR THUMB END-->
+											<!--POPULAR THUMB START-->
+											<div class="popular_thumb">
+												<figure>
+													<img src="extra-images/popular-thumb3.jpg" alt=""/>
+												</figure>
+												<!--COURES POPULAR CAPSTION START-->
+												<div class="overflow-text">
+													<h6><a href="#">Neque porro quisquam est qui dolorem  dolor</a></h6>
+													<p>19 Dec, 2015</p>
+												</div>
+												<!--COURES POPULAR CAPSTION END-->
+											</div>
+											<!--POPULAR THUMB END-->
+										</div>
+										<!--POPULAR END-->
+										<!--COURES CATEGORIES START-->
+										<div class="widget widget_time">
+											<!--Widget Title Start-->
+			                                <h5 class="widget-title"><span>working</span> hours</h5>
+			                                <!--Widget Title End-->
+											<ul>
+												<li>
+													<span>Monday</span>08:30 am - 05:30 pm
+												</li>
+												<li>
+													<span>Tuesday</span>08:30 am - 05:30 pm
+												</li>
+												<li>
+													<span>Wednesday</span>08:30 am - 05:30 pm
+												</li>
+												<li>
+													<span>Thursday</span>08:30 am - 05:30 pm
+												</li>
+												<li>
+													<span>Friday</span>08:30 am - 05:30 pm
+												</li>
+												<li>
+													<span>Saturday</span>Closed
+												</li>
+												<li>
+													<span>Sunday</span>Closed
+												</li>
+											</ul>
+										</div>
+										<!--COURES CATEGORIES END-->
+										<!--POPULAR START-->
+										<div class="widget widget-popular">
+											<!--Widget Title Start-->
+			                                <h5 class="widget-title"><span>popular</span>courses</h5>
+			                                <!--Widget Title End-->
+											<!--POPULAR THUMB START-->
+											<div class="popular_thumb">
+												<figure>
+													<img src="extra-images/popular-thumb5.jpg" alt=""/>
+												</figure>
+												<!--COURES POPULAR CAPSTION START-->
+												<div class="overflow-text">
+													<h6><a href="#">Professional Teching Course</a></h6>
+													<!--RATING AREA START-->
+													<div class="rating-wrap">
+		                                                <div class="rating_down">
+		                                                    <div class="rating_up" style="width:100%;"></div>
+		                                                </div>
+		                                            </div>	
+		                                            <!--RATING AREA End-->							
+													<p>Anna Doe</p>
+													<span>$99.99</span>
+													<!--COURES RATING AREA END-->
+												</div>
+												<!--COURES POPULAR CAPSTION END-->
+											</div>
+											<!--POPULAR THUMB END-->
+											<!--POPULAR THUMB START-->
+											<div class="popular_thumb">
+												<figure>
+													<img src="extra-images/popular-thumb2.jpg" alt=""/>
+												</figure>
+												<!--COURES POPULAR CAPSTION START-->
+												<div class="overflow-text">
+													<h6><a href="#">Professional Teching Course</a></h6>
+													<!--RATING AREA START-->
+													<div class="rating-wrap">
+		                                                <div class="rating_down">
+		                                                    <div class="rating_up" style="width:100%;"></div>
+		                                                </div>
+		                                            </div>	
+		                                            <!--RATING AREA End-->							
+													<p>Anna Doe</p>
+													<span>$99.99</span>
+													<!--COURES RATING AREA END-->
+												</div>
+												<!--COURES POPULAR CAPSTION END-->
+											</div>
+											<!--POPULAR THUMB END-->
+											<!--POPULAR THUMB START-->
+											<div class="popular_thumb">
+												<figure>
+													<img src="extra-images/popular-thumb3.jpg" alt=""/>
+												</figure>
+												<!--COURES POPULAR CAPSTION START-->
+												<div class="overflow-text">
+													<h6><a href="#">Professional Teching Course</a></h6>
+													<!--RATING AREA START-->
+													<div class="rating-wrap">
+		                                                <div class="rating_down">
+		                                                    <div class="rating_up" style="width:100%;"></div>
+		                                                </div>
+		                                            </div>	
+		                                            <!--RATING AREA End-->							
+													<p>Anna Doe</p>
+													<span>$99.99</span>
+												</div>
+												<!--COURES POPULAR CAPSTION END-->
+											</div>
+											<!--POPULAR THUMB END-->
+										</div>
+										<!--POPULAR END-->
+										<!--POPULAR START-->
+										<div class="widget widget-tag">
+											<!--Widget Title Start-->
+			                                <h5 class="widget-title"><span>tags</span></h5>
+			                                <!--Widget Title End-->
+			                                <div class="tag">
+			                                	<a class="tag-link" href="#">Science</a>
+			                                	<a class="tag-link" href="#">knowledge</a>
+			                                	<a class="tag-link" href="#">Courage</a>
+			                                	<a class="tag-link" href="#">Sports</a>
+			                                	<a class="tag-link" href="#">Impression</a>
+			                                	<a class="tag-link" href="#">History & Politics</a>
+			                                	<a class="tag-link" href="#">Admission</a>
+			                                	<a class="tag-link" href="#">Arts</a>
+			                                	<a class="tag-link" href="#">Research</a>
+			                                	<a class="tag-link" href="#">Career</a>
+			                                	<a class="tag-link" href="#">PHD</a>
+			                                </div>
+										</div>
+										<!--POPULAR END-->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+		    </div>
+		    <!--iqoniq Content End-->
+		</div>
+{% endblock %}

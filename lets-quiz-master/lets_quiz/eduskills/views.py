@@ -1,5 +1,6 @@
 from django.contrib.admin import register
 from datetime import datetime, timedelta
+from django.utils import timezone
 import mimetypes
 from django import template
 from django.core.mail import send_mail, BadHeaderError
@@ -10,19 +11,23 @@ from .decorators import login_excluded
 from .forms import SignUpForm, UserLoginForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .models import newsandupdate, ProgramCategory, Programs, StudentsToped, Queries,Blogs, Reviews,Institutions, BooksCategory, StudentLevel, FreeBooks
+from .models import newsandupdate, ProgramCategory, ComingEvents, Programs, StudentsToped, Queries,Blogs, Reviews,Institutions, BooksCategory, StudentLevel, FreeBooks
 from .forms import CommentForm
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404
 import os
 from django.core.paginator import Paginator
+now = timezone.now()
 
 
 def index(request):
     topedstudents = StudentsToped.objects.all()
+    newblogs = Blogs.objects.all()
+    featuredbooks = FreeBooks.objects.filter(featured=True)
     newsupdate = newsandupdate.objects.all()
     programs = ProgramCategory.objects.all()
-    return render(request, "eduskills/index.html", {'topedstudents': topedstudents, 'newsupdate': newsupdate,'programs': programs})
+    newevents = ComingEvents.objects.filter(From_DateTime__gt=now.date()).order_by('-From_DateTime')
+    return render(request, "eduskills/index.html", {'newevents': newevents, 'newblogs': newblogs,'featuredbooks': featuredbooks, 'topedstudents': topedstudents, 'newsupdate': newsupdate,'programs': programs})
 
 
 def news(request, *args, **kwargs):
@@ -314,7 +319,21 @@ def logout(request):
 
 
 def AboutUs(request):
-    return render(request,'eduskills/aboutus.html')
+    programs = ProgramCategory.objects.all()
+    return render(request,'eduskills/aboutus.html', {'programs': programs})
+
+
+def Event(request):
+    programs = ProgramCategory.objects.all()
+    newevents = ComingEvents.objects.filter(From_DateTime__gt=now.date()).order_by('-From_DateTime')
+    return render(request,'eduskills/eventcalender.html', {'programs': programs, 'newevents': newevents})
+
+
+def EventDetail(request, *args, **kwargs):
+    pkid = kwargs.get('id')
+    programs = ProgramCategory.objects.all()
+    newevents = ComingEvents.objects.filter(id=pkid)
+    return render(request, 'eduskills/eventdetail.html', {'programs': programs, 'newevents': newevents})
 
 
 def ContactUs(request):

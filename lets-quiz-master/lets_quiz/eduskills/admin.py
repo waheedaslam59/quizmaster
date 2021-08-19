@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import newsandupdate, StudentsToped, Comment, City, Blogs, Queries, Reviews, ProgramCategory,BooksCategory,FreeBooks,Programs, StudentLevel, Institutions, Admission
+from .models import newsandupdate, StudentsToped, ComingEvents, Comment, City, Blogs, Queries, Reviews, ProgramCategory,BooksCategory,FreeBooks,Programs, StudentLevel, Institutions, Admission
 admin.site.register(newsandupdate)
 admin.site.register(City)
 admin.site.register(Institutions)
@@ -13,6 +13,7 @@ admin.site.register(Blogs)
 admin.site.register(Reviews)
 admin.site.register(Queries)
 admin.site.register(StudentsToped)
+admin.site.register(ComingEvents)
 
 
 @admin.register(Comment)
