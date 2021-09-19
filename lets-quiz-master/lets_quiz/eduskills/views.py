@@ -11,7 +11,7 @@ from .decorators import login_excluded
 from .forms import SignUpForm, UserLoginForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .models import newsandupdate, ProgramCategory, ComingEvents, Programs, StudentsToped, Queries,Blogs, Reviews,Institutions, BooksCategory, StudentLevel, FreeBooks
+from .models import newsandupdate, ProgramCategory, ComingEvents, City, Programs, StudentsToped, Queries,Blogs, Reviews,Institutions, BooksCategory, StudentLevel, FreeBooks
 from .forms import CommentForm
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404
@@ -60,12 +60,10 @@ def course_detail(request, **kwargs):
     pkid = kwargs.get('ist')
     pid = kwargs.get('secondid')
     categ = ProgramCategory.objects.filter(Category_name=pkid)
-    print(categ)
-    #
-
+    cities = City.objects.all()
     courses = Programs.objects.filter(program_category=pkid)
     programs = ProgramCategory.objects.all()
-    return render(request, 'eduskills/course_detail.html', {'programs': programs, 'courses': courses, 'pkid': pkid})
+    return render(request, 'eduskills/course_detail.html', {'programs': programs, 'cities':cities, 'courses': courses, 'pkid': pkid})
 
 
 def mcqspdf(request, *args, **kwargs):

@@ -101,7 +101,7 @@ hr { display: block;width:100%; overflow: hidden; border-style: inset; border-wi
 
 
 </style>
-<div class="main">
+<div class="main" style="margin-top:-20px;">
         <aside>
           <div class="sidebar left ">
             <div class="user-panel">
@@ -111,8 +111,8 @@ hr { display: block;width:100%; overflow: hidden; border-style: inset; border-wi
                 <hr>
             </div>
             <ul class="list-sidebar bg-defoult">
-                {% for i in quiz_name %}
-      <li> <a href="{% url 'quiz:play' i.id %}"><i class="fa fa-files-o"></i> <span class="nav-label">{{i.name}}</span></a> </li>
+                {% for i in quizz %}
+      <li> <a href="{% url 'quiz:startquiz' i.id %}"><i class="fa fa-files-o"></i> <span class="nav-label">{{i.name}}</span></a> </li>
                 {% endfor %}
             </ul>
     </div>
