@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import newsandupdate, StudentsToped, ComingEvents, Comment, City, Blogs, Queries, Reviews, ProgramCategory,BooksCategory,FreeBooks,Programs, StudentLevel, Institutions, Admission
+from .models import newsandupdate, StudentsToped, ComingEvents, Comment, City, Blogs, Queries, Reviews,BooksCategory,FreeBooks,Programs, Institutions, Admission
 admin.site.register(newsandupdate)
 admin.site.register(City)
 admin.site.register(Institutions)
-admin.site.register(StudentLevel)
-admin.site.register(ProgramCategory)
+# admin.site.register(StudentLevel)
+# admin.site.register(ProgramCategory)
 admin.site.register(Programs)
 admin.site.register(Admission)
 admin.site.register(BooksCategory)

@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
 import os
+import datetime
 from django.contrib.auth.models import User
 # Create your models here.
 
@@ -41,31 +42,32 @@ class City(models.Model):
 class Institutions(models.Model):
     institution_name = models.CharField(max_length=500)
     ins_city = models.ForeignKey(City, on_delete=models.CASCADE)
-    prospectous = models.FileField(upload_to='edustatic/images/', validators=[FileExtensionValidator(allowed_extensions=['xlsx', 'xls', 'doc', 'docx', 'pdf'])])
+    prospectous = models.FileField(upload_to='edustatic/pdf/', validators=[FileExtensionValidator(allowed_extensions=['doc', 'docx', 'pdf'])])
     image = models.ImageField(upload_to='edustatic/images/', validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])])
 
     def __str__(self):
         return self.institution_name
 
 
-class StudentLevel(models.Model):
-    level = models.CharField(max_length=500)
-    uni = models.ForeignKey(Institutions, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.level
-
-
-class ProgramCategory(models.Model):
-    Category_name = models.CharField(max_length=500)
-    level_of_student = models.ForeignKey(StudentLevel, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.Category_name
+# class StudentLevel(models.Model):
+#     level = models.CharField(max_length=500)
+#     uni = models.ForeignKey(Institutions, on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return self.level
+#
+#
+# class ProgramCategory(models.Model):
+#     Category_name = models.CharField(max_length=500)
+#     level_of_student = models.ForeignKey(StudentLevel, on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return self.Category_name
 
 
 class Programs(models.Model):
-    program_category = models.ForeignKey(ProgramCategory, on_delete=models.CASCADE)
+    uniname = models.ForeignKey(Institutions, on_delete=models.CASCADE)
+    # program_category = models.ForeignKey(ProgramCategory, on_delete=models.CASCADE)
     program_name = models.CharField(max_length=500)
     Duration = models.CharField(max_length=400)
     fee = models.IntegerField()
@@ -77,13 +79,21 @@ class Programs(models.Model):
 
 class Admission(models.Model):
     university = models.ForeignKey(Institutions, on_delete=models.CASCADE)
+    course = models.ForeignKey(Programs, on_delete=models.CASCADE)
     ad_image = models.ImageField(upload_to='edustatic/images/', validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])])
     description = models.TextField()
     last_date = models.DateField()
     upload_date = models.DateTimeField(auto_now_add=True)
+    in_progress = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.university
+        return self.university.institution_name
+
+    def save(self, *args, **kw):
+
+        if self.last_date < datetime.datetime.now().date():
+            self.in_progress = False
+        super(Admission, self).save(*args, **kw)
 
 
 class BooksCategory(models.Model):

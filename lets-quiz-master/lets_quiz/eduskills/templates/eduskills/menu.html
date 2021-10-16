@@ -4,17 +4,17 @@
                             	<ul>
             						<li class="active"><a href="{% url 'index' %}">Home</a></li>
 
-            						<li><a href="#">Courses</a>
-            							<ul class="children">
-                                            {% for i in programs %}
-            								<li><a href="{% url 'course_detail' i.id %}"> {{i.Category_name}}</a></li>
-            							    {% endfor %}
-                                        </ul>
+            						<li><a href="{% url 'course_detail' %}">Find Course</a>
+<!--            							<ul class="children">-->
+<!--                                            {% for i in programs %}-->
+<!--            								<li><a href="{% url 'course_detail' i.id %}"> {{i.Category_name}}</a></li>-->
+<!--            							    {% endfor %}-->
+<!--                                        </ul>-->
             						</li>
 									<li><a href="#">Admissions</a>
             							<ul class="children">
-            								<li><a href="our-teachers.html">Institutions</a></li>
-            								<li><a href="staff-detail.html">Latest Admissions</a></li>
+            								<li><a href="{% url 'institutes' %}">Institutions</a></li>
+            								<li><a href="{% url 'latestadmissions' %}">Latest Admissions</a></li>
             							</ul>
             						</li>
 									<li><a href="#">Past Papers</a>

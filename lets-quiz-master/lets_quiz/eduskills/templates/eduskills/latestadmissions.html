@@ -1,0 +1,60 @@
+{% extends 'eduskills/base.html' %}
+{% load static %}
+{% load mytags %}
+    {% block title %} Institutions | WOS {% endblock %}
+    {% block container %}
+		<!--iqoniq Wrapper Start-->
+		<div class="iq_wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8"><br><br>
+						<h3>latest Admissions</h3><br>
+						<form action="" method="post">
+												{% csrf_token %}
+											<table class="table" id="coursefinder" style="border: 1px solid; background-color: #e79800;">
+												 <thead>
+												<tr>
+
+													<td scope="col">
+														<label for="city">City</label>
+														<select name="cityname" id="city" class="form-control">
+															<option>select city</option>
+															{% for c in cities %}
+															<option value="{{c.id}}">{{c.city_name}}</option>
+															{% endfor %}
+														</select>
+													</td>
+													<td scope="col">
+														<label for="institute">Institute</label>
+														<select name="institutes" id="institute" class="form-control">
+															<option>select institute</option>
+														</select>
+													</td>
+												</tr>
+												 </thead>
+												</table>
+												</form>
+						<br>
+<!--						admissions open-->
+						{% for k in ad %}
+						<div class="card">
+							  <div class="card-body">
+								<blockquote class="blockquote mb-0">
+								  <a href="">{{k.university}}</a>
+								  <footer class="blockquote-footer"> Last Date: {{k.last_date}} <cite title="Source Title">{{k.course}}</cite></footer>
+
+								</blockquote>
+							  <a href="" class="btn btn-primary text-right">View Ad</a>
+							  </div>
+						</div>
+						{% endfor %}
+					</div>
+						{% include 'eduskills/sidebar.html' %}
+				</div>
+
+			<!--Iqoniq Content End-->
+
+		</div>
+		</div>
+{% endblock %}
+

@@ -171,15 +171,15 @@
                                 <h5 class="widget-title"><span>Our</span> Photo</h5>
                                 <!-- Widget Title End-->
                                 <div class="flickr-wrap">
-                                    <a class="flickrbadges" href="#"><img src="extra-images/flickr1.jpg" alt=""></a>
-                                    <a class="flickrbadges" href="#"><img src="extra-images/flickr2.jpg" alt=""></a>
-                                    <a class="flickrbadges" href="#"><img src="extra-images/flickr3.jpg" alt=""></a>
-                                    <a class="flickrbadges" href="#"><img src="extra-images/flickr4.jpg" alt=""></a>
-                                    <a class="flickrbadges" href="#"><img src="extra-images/flickr5.jpg" alt=""></a>
-                                    <a class="flickrbadges" href="#"><img src="extra-images/flickr6.jpg" alt=""></a>
-                                    <a class="flickrbadges" href="#"><img src="extra-images/flickr4.jpg" alt=""></a>
-                                    <a class="flickrbadges" href="#"><img src="extra-images/flickr5.jpg" alt=""></a>
-                                    <a class="flickrbadges" href="#"><img src="extra-images/flickr6.jpg" alt=""></a>
+                                    <a class="flickrbadges" href="#"><img src="{% static 'extra-images/flickr1.jpg' %}" alt=""></a>
+                                    <a class="flickrbadges" href="#"><img src="{% static 'extra-images/flickr2.jpg' %}" alt=""></a>
+                                    <a class="flickrbadges" href="#"><img src="{% static 'extra-images/flickr3.jpg' %}" alt=""></a>
+                                    <a class="flickrbadges" href="#"><img src="{% static 'extra-images/flickr4.jpg' %}" alt=""></a>
+                                    <a class="flickrbadges" href="#"><img src="{% static 'extra-images/flickr5.jpg' %}" alt=""></a>
+                                    <a class="flickrbadges" href="#"><img src="{% static 'extra-images/flickr6.jpg' %}" alt=""></a>
+                                    <a class="flickrbadges" href="#"><img src="{% static 'extra-images/flickr4.jpg' %}" alt=""></a>
+                                    <a class="flickrbadges" href="#"><img src="{% static 'extra-images/flickr5.jpg' %}" alt=""></a>
+                                    <a class="flickrbadges" href="#"><img src="{% static 'extra-images/flickr6.jpg' %}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -291,6 +291,7 @@
         <script src="{% static 'js/jquery.js' %}"></script>
         <!--Bootstrap core JavaScript-->
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
         <!--SLICK SLIDER JavaScript-->
         <script src="{% static 'js/slick.min.js' %}"></script>
         <!--Dl Menu Script-->
@@ -307,7 +308,9 @@
 <!--        <script src="{% static 'js/coursesearch.js' %}"></script>-->
 
    <script>
+   {% block script %}
 
+   {% endblock script %}
 $('.carousel').carousel();
 
 </script>

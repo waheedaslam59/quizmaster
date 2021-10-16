@@ -1,0 +1,655 @@
+{% extends 'eduskills/base.html' %}
+{% load static %}
+{% load mytags %}
+
+    {% block title %} Book Detail | WOS{% endblock %}
+    {% block container %}
+		<div class="iq_wrapper">
+			<!--Header Wrap Start-->
+			<div class="iq_content_wrap">
+				<!--container_page START-->  
+				<section>
+					<div class="container">
+						<div class="row">
+						<!--OUR TEACHER CONTACT START--> 
+							<div class="our_teacher_page">
+								<div class="col-md-12">
+									<div class="row">
+										<div class="col-md-4">
+											<figure>
+												<img src="extra-images/teacher.jpg" alt=""/>
+												<!--TEACHER SOCIAL START-->  
+												<ul class="o_teacher_social">
+													<li>
+														<a href="#"><i class="fa fa-facebook"></i></a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-google-plus"></i></a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-skype"></i></a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-twitter"></i></a>
+													</li>
+												</ul>
+												<!--TEACHER SOCIAL END--> 
+												<a href="#">Mathematics</a>
+											</figure>
+										</div>
+										<div class="col-md-8">
+											<!--TEACHER CONTACT START--> 
+											<ul class="c_teacher_contct">
+												<li>
+													<h6><i class="fa fa-map-marker"></i>Postal Address</h6>
+													<p>PO Box 995864 Park 2 Street, Westen Park <span>London</span></p>
+												</li>
+												<li>
+													<h6><i class="fa fa-phone"></i>Phone</h6>
+													<p>0 (900) 123 456 78992</p>
+												</li>
+												<li>
+													<h6><i class="fa fa-envelope"></i>Email</h6>
+													<p>Info@info.com</p>
+												</li>
+												<li>
+													<h6><i class="fa fa-globe"></i>Website</h6>
+													<p>www.info.com</p>
+												</li>
+											</ul>
+											<!--TEACHER SOCIAL END--> 
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<form action="" method="post">
+										{% csrf_token %}
+									</form>
+									<!--TEACHER DETAIL START--> 
+									<div class="o_teacher_details">
+										<div class="teacher_heading">
+											<h5 class="border_effcet">Elena Davis</h5>
+											<p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.</p>
+											<div class="row">
+												<div class="col-md-6 col-sm-6">
+													<ul class="categries-list">
+														<li>
+															<a href="#">Temporibus autem quibusdam et aut officiis debitis</a>
+														</li>
+														<li>
+															<a href="#">At vero eos et accusamus et iusto odio</a>
+														</li>
+														<li>
+															<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
+														</li>
+														<li>
+															<a href="#">Itaque earum rerum hic tenetur a sapiente</a>
+														</li>
+														<li>
+															<a href="#">Ut enim ad minima veniam</a>
+														</li>
+														<li>
+															<a href="#">Duis aute irure dolor in reprehenderit in voluptate</a>
+														</li>
+													</ul>
+												</div>
+												<div class="col-md-6 col-sm-6">
+													<ul class="categries-list">
+														<li>
+															<a href="#">Temporibus autem quibusdam et aut officiis debitis</a>
+														</li>
+														<li>
+															<a href="#">At vero eos et accusamus et iusto odio</a>
+														</li>
+														<li>
+															<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
+														</li>
+														<li>
+															<a href="#">Itaque earum rerum hic tenetur a sapiente</a>
+														</li>
+														<li>
+															<a href="#">Ut enim ad minima veniam</a>
+														</li>
+														<li>
+															<a href="#">Duis aute irure dolor in reprehenderit in voluptate</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="teacher_biography">
+										  <!-- Nav tabs -->
+										  	<div class="iq_tab_menu">
+												<ul class="iq_tab_menu" role="tablist">
+													<li role="presentation" class="active"><a href="#Biography" aria-controls="Biography" role="tab" data-toggle="tab">Biography</a></li>
+													<li role="presentation"><a href="#Skills" aria-controls="Skills" role="tab" data-toggle="tab">Skills</a></li>
+													<li role="presentation"><a href="#Details" aria-controls="Details" role="tab" data-toggle="tab">Prof.Details</a></li>
+												</ul>
+											</div>
+										  	<!-- Tab panes -->
+											<div class="tab-content">
+												<div role="tabpanel" class="tab-pane fade in active" id="Biography">
+													<!--TEACHER BIO AREA START--> 
+													<div class="teacher_bio_area">
+														<div class="teacher_heading">
+															<h5 class="border_effcet">Elena Davis</h5>
+															<p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.</p>
+															<div class="row">
+																<div class="col-md-6 col-sm-6">
+																	<ul class="categries-list">
+																		<li>
+																			<a href="#">Temporibus autem quibusdam et aut officiis debitis</a>
+																		</li>
+																		<li>
+																			<a href="#">At vero eos et accusamus et iusto odio</a>
+																		</li>
+																		<li>
+																			<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
+																		</li>
+																		<li>
+																			<a href="#">Itaque earum rerum hic tenetur a sapiente</a>
+																		</li>
+																		<li>
+																			<a href="#">Ut enim ad minima veniam</a>
+																		</li>
+																		<li>
+																			<a href="#">Duis aute irure dolor in reprehenderit in voluptate</a>
+																		</li>
+																	</ul>
+																</div>
+																<div class="col-md-6 col-sm-6">
+																	<ul class="categries-list">
+																		<li>
+																			<a href="#">Temporibus autem quibusdam et aut officiis debitis</a>
+																		</li>
+																		<li>
+																			<a href="#">At vero eos et accusamus et iusto odio</a>
+																		</li>
+																		<li>
+																			<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
+																		</li>
+																		<li>
+																			<a href="#">Itaque earum rerum hic tenetur a sapiente</a>
+																		</li>
+																		<li>
+																			<a href="#">Ut enim ad minima veniam</a>
+																		</li>
+																		<li>
+																			<a href="#">Duis aute irure dolor in reprehenderit in voluptate</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!--TEACHER BIO AREA END--> 
+												</div>
+												<div role="tabpanel" class="tab-pane fade" id="Skills">
+													<!--TEACHER BIO AREA START--> 
+													<div class="teacher_bio_area">
+														<h5>Unordered List</h5>
+														<ul class="categries-list">
+															<li>
+																<a href="#">Temporibus autem quibusdam et aut officiis debitis</a>
+															</li>
+															<li>
+																<a href="#">At vero eos et accusamus et iusto odio</a>
+															</li>
+															<li>
+																<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
+															</li>
+														</ul>
+														<h5>Ordered List</h5>
+														<ul class="categries-list">
+															<li>
+																<a href="#">Temporibus autem quibusdam et aut officiis debitis</a>
+															</li>
+															<li>
+																<a href="#">At vero eos et accusamus et iusto odio</a>
+															</li>
+															<li>
+																<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
+															</li>
+														</ul>
+													</div>
+													<!--TEACHER BIO AREA END--> 	
+												</div>
+												<div role="tabpanel" class="tab-pane fade" id="Details">
+													<!--TEACHER BIO AREA START--> 
+													<div class="teacher_bio_area">
+														<div class="teacher_heading">
+															<h5 class="border_effcet">Elena Davis</h5>
+															<p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.</p>
+															<div class="row">
+																<div class="col-md-6 col-sm-6">
+																	<ul class="categries-list">
+																		<li>
+																			<a href="#">Temporibus autem quibusdam et aut officiis debitis</a>
+																		</li>
+																		<li>
+																			<a href="#">At vero eos et accusamus et iusto odio</a>
+																		</li>
+																		<li>
+																			<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
+																		</li>
+																		<li>
+																			<a href="#">Itaque earum rerum hic tenetur a sapiente</a>
+																		</li>
+																		<li>
+																			<a href="#">Ut enim ad minima veniam</a>
+																		</li>
+																		<li>
+																			<a href="#">Duis aute irure dolor in reprehenderit in voluptate</a>
+																		</li>
+																	</ul>
+																</div>
+																<div class="col-md-6 col-sm-6">
+																	<ul class="categries-list">
+																		<li>
+																			<a href="#">Temporibus autem quibusdam et aut officiis debitis</a>
+																		</li>
+																		<li>
+																			<a href="#">At vero eos et accusamus et iusto odio</a>
+																		</li>
+																		<li>
+																			<a href="#">Et harum quidem rerum facilis est et expedita distinctio</a>
+																		</li>
+																		<li>
+																			<a href="#">Itaque earum rerum hic tenetur a sapiente</a>
+																		</li>
+																		<li>
+																			<a href="#">Ut enim ad minima veniam</a>
+																		</li>
+																		<li>
+																			<a href="#">Duis aute irure dolor in reprehenderit in voluptate</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!--TEACHER BIO AREA END-->  
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--TEACHER Details END--> 
+								</div>
+							</div>
+							<!--OUR TEACHER CONTACT END--> 
+						</div>
+					</div>
+				</section>
+				<!--SECTION_page end-->
+				<!--Number Counter Wrap Start-->
+		        <section class="iq_number_count_bg">
+		        	<div class="container">
+		            	<div class="row">
+		                    <!--Number Counter Start-->
+		                	<div class="col-md-3">
+		                    	<div class="iq_counter">
+		                        	<i class="fa fa-graduation-cap"></i>
+		                            <span class="counter">3746</span>
+		                            <h6>Total Lectures</h6>
+		                        </div>
+		                    </div>
+		                    <!--Number Counter End-->
+		                    <!--Number Counter Start-->
+		                    <div class="col-md-3">
+		                    	<div class="iq_counter">
+		                        	<i class="fa fa-facebook"></i>
+		                            <span class="counter">1921</span>
+		                            <h6>Total Courses</h6>
+		                        </div>
+		                    </div>
+		                    <!--Number Counter End-->
+		                    <!--Number Counter Start-->
+		                    <div class="col-md-3">
+		                    	<div class="iq_counter">
+		                        	<i class="fa fa-file-archive-o"></i>
+		                            <span class="counter">183</span>
+		                            <h6>Total Tests</h6>
+		                        </div>
+		                    </div>
+		                    <!--Number Counter End-->
+		                    <!--Number Counter Start-->
+		                    <div class="col-md-3">
+		                    	<div class="iq_counter">
+		                        	<i class="fa fa-book"></i>
+		                            <span class="counter">1635</span>
+		                            <h6>Total Classes</h6>
+		                        </div>
+		                    </div>
+		                    <!--Number Counter End-->
+		                </div>
+		            </div>
+		        </section>
+		        <!--Number Counter Wrap End-->
+		        <section>
+					<!--TEACHER COUNTER AREA END--> 
+					<div class="teacher_page_slider">
+						<div class="container">
+							<!--Heading Wrap Start-->
+		                    <div class="iq_heading_1 text-left">
+		                        <h4>Elena Davis <span>Courses</span></h4>
+		                    </div>
+		                    <!--Heading Wrap End-->
+							<!-- Courses Slider Start -->
+							<div class="courses-slider">
+								<div class="col-md-4">
+									<!--courses popular thumb start -->
+									<div class="coureses_Popular_thumb">
+										<figure>
+											<img alt="Image Here" src="extra-images/featured-course-1.jpg">
+											<a class="iq_link_1" href="#">view detail</a>
+										</figure>
+										<!-- popular thumb start -->
+										<div class="Popular_capstion_thumb">
+											<!-- popular caption start -->
+											<div class="popular_capstion">
+												<h5><a href="#">Computer &amp; IT Courses</a></h5>
+												<div class="map_icon"><i class="fa fa-map-marker"></i>Education University</div>
+												<!--RATING AREA START-->
+		                                        <div class="rating_down">
+		                                            <div class="rating_up" style="width:100%;"></div>
+		                                        </div>
+		                                        <!--RATING AREA End-->  	
+												<p>This is Photoshop's version  of Lorem Ipsum. Proin nibh vel velit auctor aliquet. </p>
+											</div>
+											<!-- popular caption end -->
+											<!-- popular caption bottom start -->
+											<ul class="popular_capstion_bottom">
+												<li>
+													<span>Undergraduate</span>
+													<span class="right">Full Time</span>
+												</li>
+												<li>
+													<span>3 Years</span>
+													<span class="right">13 +</span>
+												</li>
+											</ul>
+											<!-- popular caption bottom end -->
+											<span class="price"><strong>$ 69, 00</strong>per year</span>
+										</div>
+										<!-- popular thumb end -->
+									</div>
+									<!--courses popular thumb end -->
+								</div>
+								<div class="col-md-4">
+									<!--courses popular thumb start -->
+									<div class="coureses_Popular_thumb">
+										<figure>
+											<img alt="Image Here" src="extra-images/featured-course-2.jpg">
+											<a class="iq_link_1" href="#">view detail</a>
+										</figure>
+										<!-- popular thumb start -->
+										<div class="Popular_capstion_thumb">
+											<!-- popular caption start -->
+											<div class="popular_capstion">
+												<h5><a href="#">Photography lectures</a></h5>
+												<div class="map_icon"><i class="fa fa-map-marker"></i>Education University</div>
+												<!--RATING AREA START-->
+		                                        <div class="rating_down">
+		                                            <div class="rating_up" style="width:100%;"></div>
+		                                        </div>
+		                                        <!--RATING AREA End-->  	
+												<p>This is Photoshop's version  of Lorem Ipsum. Proin nibh vel velit auctor aliquet. </p>
+											</div>
+											<!-- popular caption end -->
+											<!-- popular caption bottom start -->
+											<ul class="popular_capstion_bottom">
+												<li>
+													<span>Undergraduate</span>
+													<span class="right">Full Time</span>
+												</li>
+												<li>
+													<span>3 Years</span>
+													<span class="right">13 +</span>
+												</li>
+											</ul>
+											<!-- popular caption bottom end -->
+											<span class="price"><strong>$ 69, 00</strong>per year</span>
+										</div>
+										<!-- popular thumb end -->
+									</div>
+									<!--courses popular thumb end -->
+								</div>
+								<div class="col-md-4">
+									<!--courses popular thumb start -->
+									<div class="coureses_Popular_thumb">
+										<figure>
+											<img alt="Image Here" src="extra-images/featured-course-3.jpg">
+											<a class="iq_link_1" href="#">view detail</a>
+										</figure>
+										<!-- popular thumb start -->
+										<div class="Popular_capstion_thumb">
+											<!-- popular caption start -->
+											<div class="popular_capstion">
+												<h5><a href="#">Developing Mobile Apps</a></h5>
+												<div class="map_icon"><i class="fa fa-map-marker"></i>Education University</div>
+												<!--RATING AREA START-->
+		                                        <div class="rating_down">
+		                                            <div class="rating_up" style="width:100%;"></div>
+		                                        </div>
+		                                        <!--RATING AREA End-->  	
+												<p>This is Photoshop's version  of Lorem Ipsum. Proin nibh vel velit auctor aliquet. </p>
+											</div>
+											<!-- popular caption end -->
+											<!-- popular caption bottom start -->
+											<ul class="popular_capstion_bottom">
+												<li>
+													<span>Undergraduate</span>
+													<span class="right">Full Time</span>
+												</li>
+												<li>
+													<span>3 Years</span>
+													<span class="right">13 +</span>
+												</li>
+											</ul>
+											<!-- popular caption bottom end -->
+											<span class="price"><strong>$ 69, 00</strong>per year</span>
+										</div>
+										<!-- popular thumb end -->
+									</div>
+									<!--courses popular thumb end -->
+								</div>
+								<div class="col-md-4">
+									<!--courses popular thumb start -->
+									<div class="coureses_Popular_thumb">
+										<figure>
+											<img alt="Image Here" src="extra-images/featured-course-4.jpg">
+											<a class="iq_link_1" href="#">view detail</a>
+										</figure>
+										<!-- popular thumb start -->
+										<div class="Popular_capstion_thumb">
+											<!-- popular caption start -->
+											<div class="popular_capstion">
+												<h5><a href="#">Business & Finance</a></h5>
+												<div class="map_icon"><i class="fa fa-map-marker"></i>Education University</div>
+												<!--RATING AREA START-->
+		                                        <div class="rating_down">
+		                                            <div class="rating_up" style="width:100%;"></div>
+		                                        </div>
+		                                        <!--RATING AREA End-->  	
+												<p>This is Photoshop's version  of Lorem Ipsum. Proin nibh vel velit auctor aliquet. </p>
+											</div>
+											<!-- popular caption end -->
+											<!-- popular caption bottom start -->
+											<ul class="popular_capstion_bottom">
+												<li>
+													<span>Undergraduate</span>
+													<span class="right">Full Time</span>
+												</li>
+												<li>
+													<span>3 Years</span>
+													<span class="right">13 +</span>
+												</li>
+											</ul>
+											<!-- popular caption bottom end -->
+											<span class="price"><strong>$ 69, 00</strong>per year</span>
+										</div>
+										<!-- popular thumb end -->
+									</div>
+									<!--courses popular thumb end -->
+								</div>
+								<div class="col-md-4">
+									<!--courses popular thumb start -->
+									<div class="coureses_Popular_thumb">
+										<figure>
+											<img alt="Image Here" src="extra-images/featured-course-1.jpg">
+											<a class="iq_link_1" href="#">view detail</a>
+										</figure>
+										<!-- popular thumb start -->
+										<div class="Popular_capstion_thumb">
+											<!-- popular caption start -->
+											<div class="popular_capstion">
+												<h5><a href="#">Computer &amp; IT Courses</a></h5>
+												<div class="map_icon"><i class="fa fa-map-marker"></i>Education University</div>
+												<!--RATING AREA START-->
+		                                        <div class="rating_down">
+		                                            <div class="rating_up" style="width:100%;"></div>
+		                                        </div>
+		                                        <!--RATING AREA End-->  	
+												<p>This is Photoshop's version  of Lorem Ipsum. Proin nibh vel velit auctor aliquet. </p>
+											</div>
+											<!-- popular caption end -->
+											<!-- popular caption bottom start -->
+											<ul class="popular_capstion_bottom">
+												<li>
+													<span>Undergraduate</span>
+													<span class="right">Full Time</span>
+												</li>
+												<li>
+													<span>3 Years</span>
+													<span class="right">13 +</span>
+												</li>
+											</ul>
+											<!-- popular caption bottom end -->
+											<span class="price"><strong>$ 69, 00</strong>per year</span>
+										</div>
+										<!-- popular thumb end -->
+									</div>
+									<!--courses popular thumb end -->
+								</div>
+							</div>
+							<!-- Courses Slider End -->
+							<!--Heading Wrap Start-->
+		                    <div class="iq_heading_1 text-left">
+		                        <h4>Elena Davis <span>Courses</span></h4>
+		                    </div>
+		                    <!--Heading Wrap End-->
+							<div class="testimonial-slider">
+								<div class="col-md-4">
+									<!--courses popular thumb start -->
+									<div class="teacher_s2_thumb">
+										<figure>
+											<img alt="Image Here" src="extra-images/s-slider.jpg">
+											<ul class="s-social">
+												<li>
+													<a class="facebook-2" href="#"><i class="fa fa-facebook"></i></a>
+												</li>
+												<li>
+													<a class="linkedin-2" href="#"><i class="fa fa-linkedin"></i></a>
+												</li>
+												<li>
+													<a class="skype-2" href="#"><i class="fa fa-skype"></i></a>
+												</li>
+												<li>
+													<a class="youtube-2" href="#"><i class="fa fa-youtube-play"></i></a>
+												</li>
+											</ul>
+										</figure>
+										<!-- s2_capstion_thumb start -->
+										<div class="s2_capstion_thumb">
+											<!-- popular caption start -->
+											<div class="s2_heading">
+												<h5>Joana Magi</h5>
+												<span>IT EXPERT</span>
+											</div>
+											<div class="s2_details">
+												<p>Enean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh.</p>
+											</div>
+										</div>
+										<!-- s2_capstion_thumb end -->
+									</div>
+									<!--courses popular thumb end -->
+								</div>
+								<div class="col-md-4">
+									<!--courses popular thumb start -->
+									<div class="teacher_s2_thumb">
+										<figure>
+											<img alt="Image Here" src="extra-images/s-slider2.jpg">
+											<ul class="s-social">
+												<li>
+													<a class="facebook-2" href="#"><i class="fa fa-facebook"></i></a>
+												</li>
+												<li>
+													<a class="linkedin-2" href="#"><i class="fa fa-linkedin"></i></a>
+												</li>
+												<li>
+													<a class="skype-2" href="#"><i class="fa fa-skype"></i></a>
+												</li>
+												<li>
+													<a class="youtube-2" href="#"><i class="fa fa-youtube-play"></i></a>
+												</li>
+											</ul>
+										</figure>
+										<!-- s2_capstion_thumb start -->
+										<div class="s2_capstion_thumb">
+											<!-- popular caption start -->
+											<div class="s2_heading">
+												<h5>Joana Magi</h5>
+												<span>IT EXPERT</span>
+											</div>
+											<div class="s2_details">
+												<p>Enean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh.</p>
+											</div>
+										</div>
+										<!-- s2_capstion_thumb end -->
+									</div>
+									<!--courses popular thumb end -->
+								</div>
+								<div class="col-md-4">
+									<!--courses popular thumb start -->
+									<div class="teacher_s2_thumb">
+										<figure>
+											<img alt="Image Here" src="extra-images/s-slider.jpg">
+											<ul class="s-social">
+												<li>
+													<a class="facebook-2" href="#"><i class="fa fa-facebook"></i></a>
+												</li>
+												<li>
+													<a class="linkedin-2" href="#"><i class="fa fa-linkedin"></i></a>
+												</li>
+												<li>
+													<a class="skype-2" href="#"><i class="fa fa-skype"></i></a>
+												</li>
+												<li>
+													<a class="youtube-2" href="#"><i class="fa fa-youtube-play"></i></a>
+												</li>
+											</ul>
+										</figure>
+										<!-- s2_capstion_thumb start -->
+										<div class="s2_capstion_thumb">
+											<!-- popular caption start -->
+											<div class="s2_heading">
+												<h5>Joana Magi</h5>
+												<span>IT EXPERT</span>
+											</div>
+											<div class="s2_details">
+												<p>Enean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh.</p>
+											</div>
+										</div>
+										<!-- s2_capstion_thumb end -->
+									</div>
+									<!--courses popular thumb end -->
+								</div>
+							</div>
+							<!--course_inrp_search_area end-->
+						</div>
+					</div>	
+				</section>	
+			</div>
+			<!--Iqoniq Content End-->
+		</div>
+    {% endblock %}

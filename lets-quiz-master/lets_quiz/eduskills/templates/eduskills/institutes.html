@@ -1,0 +1,39 @@
+{% extends 'eduskills/base.html' %}
+{% load static %}
+{% load mytags %}
+    {% block title %} Institutions | WOS {% endblock %}
+    {% block container %}
+		<!--iqoniq Wrapper Start-->
+		<div class="iq_wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<input type="search" class="form-control">
+						<br>
+						<h2>Institutes</h2>
+						<br>
+						<form action="" method="post">
+							{% csrf_token %}
+						<table class="table table-stripe">
+
+
+								{% for i in schools %}
+						<tr>
+							<td><p>{{i.institution_name}}</p></td>
+							<td><a href="{% url 'download' filename=i.prospectous|mytags %}" type="submit" class="btn btn-primary">Prospectus</a></td>
+							<td><a href="" class="btn btn-primary">View admissions</a></td>
+						</tr>
+								{% endfor %}
+
+							</table>
+							</form>
+					</div>
+						{% include 'eduskills/sidebar.html' %}
+				</div>
+
+			<!--Iqoniq Content End-->
+
+		</div>
+		</div>
+{% endblock %}
+

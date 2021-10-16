@@ -39,65 +39,30 @@
                             <div class="col-md-4" style="margin-top:-200px;">
                             	<div class="iq_search_courses">
                                 	<h4>Search Courses</h4>
-                                    <form>
+                                    <form method="post">
+                                        {% csrf_token %}
                                         <!--Input Start-->
                                     	<div class="iq-input">
-                                        	<input type="text" placeholder="Name">
-                                        </div>
-                                        <!--Input End-->
-                                        <!--Input Start-->
-                                        <div class="iq-input">
-                                        	<input type="email" placeholder="E-mail">
-                                        </div>
-                                        <!--Input End-->
-                                        <!--Input Start-->
-                                        <div class="iq-input">
-                                        	<input type="text" placeholder="Name">
-                                        </div>
-                                        <!--Input End-->
-                                        <!--Input Start-->
-                                        <div class="iq-input">
-                                            <select name="Dicipline">
-                                                <option value="0">Dicipline</option>
-                                                <option value="9">Saab</option>
-                                                <option value="2">Fiat</option>
-                                                <option value="3">Audi</option>
+                                            <select name="cities" id="cities">
+                                                <option value="">--select city--</option>
+                                                {% for i in cities %}
+                                                <option value="{{i.id}}">{{i.city_name}}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                         <!--Input End-->
                                         <!--Input Start-->
                                         <div class="iq-input">
-                                            <select name="Course_Length">
-                                                <option value="0">Course Length</option>
-                                                <option value="9">Saab</option>
-                                                <option value="2">Fiat</option>
-                                                <option value="3">Audi</option>
+                                        	<select name="institutes" id="institutes">
+                                                <option value="">--select institute--</option>
                                             </select>
                                         </div>
                                         <!--Input End-->
                                         <!--Input Start-->
                                         <div class="iq-input">
-                                            <select name="Study_Level">
-                                                <option value="0">Study Level</option>
-                                                <option value="9">Saab</option>
-                                                <option value="2">Fiat</option>
-                                                <option value="3">Audi</option>
+                                        	<select name="program" id="program">
+                                                <option value="">--select course---</option>
                                             </select>
-                                        </div>
-                                        <!--Input End-->
-                                        <!--Input Start-->
-                                        <div class="iq-input">
-                                            <select name="Campus_Location">
-                                                <option value="0">Campus Location</option>
-                                                <option value="9">Saab</option>
-                                                <option value="2">Fiat</option>
-                                                <option value="3">Audi</option>
-                                            </select>
-                                        </div>
-                                        <!--Input End-->
-                                        <!--Input Start-->
-                                        <div class="iq-input">
-                                        	<input type="text" placeholder="Key Words">
                                         </div>
                                         <!--Input End-->
                                         <!--Input Start-->
@@ -398,6 +363,69 @@
                 </div> </div>
             {% endblock %}
             <!--Contact Info Wrap End-->
-            <!--Footer Wrap Start-->
+{% block script %}
+$("#cities").change(function (e) {
+        // preventing default actions
+        e.preventDefault();
+        // serialize the data for sending the form data.
+        var serializedData = $(this).val();
+			var mydata = {cityname:serializedData,}
+		let csrftoken = '{{ csrf_token }}'
+        // Ajax Call
+        $.ajax({
+            type: 'POST',
+			headers:{'X-CSRFToken':csrftoken},
+            url: "{% url 'staff_detail' %}",
+            data: mydata,
+			// handle a successful response
+            success: function (data) {
+                // On successful, clear all form data
+			var data1 = JSON.stringify(data);
 
+			obj3=JSON.parse(data1)
+			$("#institutes").empty();
+$("#institutes").append("<option>--select---</option>")
+			for (var i = 0; i < obj3.length; i++)
+				$("#institutes").append("<option value='"+ obj3[i].pk +"'>"+obj3[i].fields.institution_name+"</option>");
+},
+            error: function (data) {
+                // alert non successful response
+                console.log("Error")
+            }
+        })
+    })
+
+
+$("#institutes").change(function (e) {
+        // preventing default actions
+        e.preventDefault();
+        // serialize the data for sending the form data.
+        var serializedData = $(this).val();
+			var mydata = {institutes:serializedData,}
+		let csrftoken = '{{ csrf_token }}'
+        // Ajax Call
+        $.ajax({
+            type: 'POST',
+			headers:{'X-CSRFToken':csrftoken},
+            url: "{% url 'staff_detail2' %}",
+            data: mydata,
+			// handle a successful response
+            success: function (data) {
+                // On successful, clear all form data
+			var data1 = JSON.stringify(data);
+
+			obj3=JSON.parse(data1)
+
+			$("#program").empty();
+$("#program").append("<option>--select---</option>")
+			for (var i = 0; i < obj3.length; i++)
+				$("#program").append("<option value='"+ obj3[i].pk +"'>"+obj3[i].fields.program_name+"</option>");
+},
+            error: function (data) {
+                // alert non successful response
+                console.log("Error")
+            }
+        })
+    })
+{% endblock script %}
 

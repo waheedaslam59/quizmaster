@@ -17,13 +17,15 @@
 		                            <div class="iq_heading_1 text-left">
 										<div class="form-group">
 										<label for="coursefinder"><h2>Course Finder</h2></label>
+											<form action="" method="post">
+												{% csrf_token %}
 											<table class="table" id="coursefinder" style="border: 1px solid; background-color: #e79800;">
 												 <thead>
 												<tr>
 
 													<td scope="col">
 														<label for="city">City</label>
-														<select name="select" id="city" class="form-control">
+														<select name="cityname" id="city" class="form-control">
 															<option>select city</option>
 															{% for c in cities %}
 															<option value="{{c.id}}">{{c.city_name}}</option>
@@ -32,45 +34,40 @@
 													</td>
 													<td scope="col">
 														<label for="institute">Institute</label>
-														<select name="select" id="institute" class="form-control">
+														<select name="institutes" id="institute" class="form-control">
 															<option>select institute</option>
-															<option>hello</option>
-															<option>hello</option>
 														</select>
 													</td>
-													<td scope="col">
-														<label for="stl">Student Level</label>
-														<select name="select" id="stl" class="form-control">
-															<option>select level</option>
-															<option>hello</option>
-															<option>hello</option>
-														</select>
-													</td>
-													<td scope="col">
-														<label for="ds">Course Type</label>
-														<select name="select" id="ds" class="form-control">
-														<option>select type</option>
-															{% for j in programs %}
-																{% ifequal pkid j.id %}
-														<option selected value="{{j.id}}">{{j.Category_name}}</option>
-																{% else %}
-														<option value="{{j.id}}">{{j.Category_name}}</option>
+<!--													<td scope="col">-->
+<!--														<label for="stl">Student Level</label>-->
+<!--														<select name="stdlevel" id="stl" class="form-control">-->
+<!--															<option>select level</option>-->
+<!--														</select>-->
+<!--													</td>-->
+<!--													<td scope="col">-->
+<!--														<label for="ct">Course Type</label>-->
+<!--														<select name="coursetype" id="ct" class="form-control">-->
+<!--														<option>select type</option>-->
+<!--															{% for j in programs %}-->
+<!--																{% ifequal pkid j.id %}-->
+<!--														<option selected value="{{j.id}}">{{j.Category_name}}</option>-->
+<!--																{% else %}-->
+<!--														<option value="{{j.id}}">{{j.Category_name}}</option>-->
 
-																{% endifequal %}
-															{% endfor %}
-														</select>
-													</td>
+<!--																{% endifequal %}-->
+<!--															{% endfor %}-->
+<!--														</select>-->
+<!--													</td>-->
 												<td scope="col">
-													<label for="fdf">Program</label>
-													<select name="select" id="fdf" class="form-control">
+													<label for="program">Program</label>
+													<select name="program" id="program" class="form-control">
 													<option>select program</option>
-													<option>hello</option>
-													<option>hello</option>
 													</select>
 												</td>
 												</tr>
 												 </thead>
 												</table>
+												</form>
 											</div>
 		                            </div>
 
@@ -89,49 +86,40 @@
 									</ul>
 									<!--courses_socil end-->
 									<!--course_comments START-->
-									<ul class="course_comments">
-										<li>
-											<a href="#"><i class="fa fa-clock-o"></i>Nov 2015</a>
-										</li>
-										<li>
-											<a href="#"><i class="fa fa-user"></i>Nov 2015</a>
-										</li>
-										<li>
-											<a href="#"><i class="fa fa-comments-o"></i>Nov 2015</a>
-										</li>
-									</ul>
+
 									<!--course_comments end-->
 								</div>
-								<table class="table table">
-									<tr>
-										<th>Courses</th>
-										<th>Universities</th>
-									<th>Admissions</th>
-									<th>Career Scope</th>
-									</tr>
+<!--								<table class="table table" id="coursedetail">-->
+<!--									<tr>-->
+<!--										<th>Courses</th>-->
+<!--										<th>Universities</th>-->
+<!--									<th>Admissions</th>-->
+<!--									<th>Career Scope</th>-->
+<!--									</tr>-->
 
-									{% for i in courses %}
+<!--									{% for i in courses %}-->
 
-									<tr>
+<!--									<tr>-->
 
-										<td scope="col">
-											{{i.program_name}}
-										</td>
-										<td>
-											<a href="{% url 'course_detail' ist=pkid secondid=i.id  %}"><button class="btn btn-primary">Universities</button>
-										</a>
-										</td>
-										<td>
-											<button class="btn btn-primary">Admissions</button>
-										</td>
-										<td>
-											<button class="btn btn-primary">Career Scope </button>
-										</td>
-									</tr>
-									{% endfor %}
+<!--										<td scope="col">-->
+<!--											{{i.program_name}}-->
+<!--										</td>-->
+<!--										<td>-->
+<!--											<a href="{% url 'course_detail' ist=pkid secondid=i.id  %}"><button class="btn btn-primary">Universities</button>-->
+<!--										</a>-->
+<!--										</td>-->
+<!--										<td>-->
+<!--											<button class="btn btn-primary">Admissions</button>-->
+<!--										</td>-->
+<!--										<td>-->
+<!--											<button class="btn btn-primary">Career Scope </button>-->
+<!--										</td>-->
+<!--									</tr>-->
+<!--									{% endfor %}-->
 
 
-								</table>
+								<div id="coursedetail"></div>
+<!--								</table>-->
 								<!--course_single_heading end-->
 							</div>
 							{% include 'eduskills/sidebar.html' %}
@@ -143,11 +131,107 @@
 			<!--Iqoniq Content Wrap End-->
 
 {% endblock %}
-<script>
-$(document).ready(function () {
-    $('#city').change(function() {
-        $city_id = $(this).value
-		console.log("hello")
-            });
-            });
-</script>
+{% block script %}
+
+ $("#city").change(function (e) {
+        // preventing default actions
+        e.preventDefault();
+        // serialize the data for sending the form data.
+        var serializedData = $(this).val();
+			var mydata = {cityname:serializedData,}
+		let csrftoken = '{{ csrf_token }}'
+        // Ajax Call
+        $.ajax({
+            type: 'POST',
+			headers:{'X-CSRFToken':csrftoken},
+            url: "{% url 'staff_detail' %}",
+            data: mydata,
+			// handle a successful response
+            success: function (data) {
+                // On successful, clear all form data
+			var data1 = JSON.stringify(data);
+
+			obj3=JSON.parse(data1)
+			$("#institute").empty();
+$("#institute").append("<option>--select---</option>")
+			for (var i = 0; i < obj3.length; i++)
+				$("#institute").append("<option value='"+ obj3[i].pk +"'>"+obj3[i].fields.institution_name+"</option>");
+},
+            error: function (data) {
+                // alert non successful response
+                console.log("Error")
+            }
+        })
+    })
+
+
+$("#institute").change(function (e) {
+        // preventing default actions
+        e.preventDefault();
+        // serialize the data for sending the form data.
+        var serializedData = $(this).val();
+			var mydata = {institutes:serializedData,}
+		let csrftoken = '{{ csrf_token }}'
+        // Ajax Call
+        $.ajax({
+            type: 'POST',
+			headers:{'X-CSRFToken':csrftoken},
+            url: "{% url 'staff_detail2' %}",
+            data: mydata,
+			// handle a successful response
+            success: function (data) {
+                // On successful, clear all form data
+			var data1 = JSON.stringify(data);
+
+			obj3=JSON.parse(data1)
+
+			$("#program").empty();
+$("#program").append("<option>--select---</option>")
+			for (var i = 0; i < obj3.length; i++)
+				$("#program").append("<option value='"+ obj3[i].pk +"'>"+obj3[i].fields.program_name+"</option>");
+},
+            error: function (data) {
+                // alert non successful response
+                console.log("Error")
+            }
+        })
+    })
+
+
+$("#program").change(function (e) {
+        // preventing default actions
+        e.preventDefault();
+        // serialize the data for sending the form data.
+        var serializedData = $(this).val();
+		var cities = $("#city").val()
+		var institute = $("#institute").val()
+			var mydata = {program:serializedData, cities:cities, institute:institute }
+		let csrftoken = '{{ csrf_token }}'
+        // Ajax Call
+        $.ajax({
+            type: 'POST',
+			headers:{'X-CSRFToken':csrftoken},
+            url: "{% url 'staff_detail3' %}",
+            data: mydata,
+			// handle a successful response
+            success: function (data) {
+                // On successful, clear all form data
+			var data1 = JSON.stringify(data);
+			obj3=JSON.parse(data1)
+			console.log(obj3)
+			$("#coursedetail").empty()
+			$("#coursedetail").append("<h2>" + obj3[0].fields.program_name + "</h2>")
+			$("#coursedetail").append("<br><br><p style='{line-break: loose;}'>" + obj3[0].fields.description + "</p>")
+			$("#coursedetail").append("<br><br><p>Duration: " + obj3[0].fields.Duration + "</p>")
+			$("#coursedetail").append("<br><p>Fee: " + obj3[0].fields.fee + "</p>")
+			// for (var i = 0; i < obj3.length; i++)
+
+},
+            error: function (data) {
+                // alert non successful response
+                console.log("Error")
+            }
+        })
+    })
+
+{% endblock script %}
