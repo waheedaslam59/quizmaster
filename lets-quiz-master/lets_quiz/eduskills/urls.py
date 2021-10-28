@@ -42,4 +42,6 @@ urlpatterns = [
     path('staff_detail3/', eduskills_views.staff_detail3, name="staff_detail3"),
     path('institutes/', eduskills_views.institutes, name="institutes"),
     path('latestadmissions/', eduskills_views.latestadmissions, name="latestadmissions"),
+    path('admissiondetail/', eduskills_views.admissiondetail, name="admissiondetail"),
+    path('admissiondetail/<int:id>/', eduskills_views.admissiondetail, name="admissiondetail"),
 ]

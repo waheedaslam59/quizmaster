@@ -1,0 +1,28 @@
+{% extends 'eduskills/base.html' %}
+{% load static %}
+{% load mytags %}
+    {% block title %} Institutions | WOS {% endblock %}
+    {% block container %}
+		<!--iqoniq Wrapper Start-->
+		<div class="iq_wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8"><br><br>
+						<h3>Admission Detail</h3><br>
+
+						<br>
+						{% for i in adm %}
+						<a href=""><img src="/{{i.ad_image}}" height="700" width="600" alt="sorry"/></a><br><br>
+						<p>{{i.description}}</p>
+						<br><br>
+						<p>Last date of admission: {{i.last_date}}</p>
+						{% endfor %}
+					</div>
+						{% include 'eduskills/sidebar.html' %}
+				</div>
+
+			<!--Iqoniq Content End-->
+
+		</div>
+		</div>
+{% endblock %}

@@ -33,9 +33,28 @@
 												</tr>
 												 </thead>
 												</table>
+							<button type="submit" class="btn btn-primary">View Admissions</button>
 												</form>
 						<br>
 <!--						admissions open-->
+						{% if admissions %}
+						{% for k in admissions %}
+						<div class="card">
+							  <div class="card-body">
+								<blockquote class="blockquote mb-0">
+								  <a href="">{{k.university}}</a>
+								  <footer class="blockquote-footer"> Last Date: {{k.last_date}} <cite title="Source Title">{{k.course}}</cite></footer>
+
+								</blockquote>
+							  <a href="{% url 'admissiondetail' k.id %}" class="btn btn-primary text-right">View Ad</a>
+							  </div>
+						</div>
+						{% endfor %}
+						{% elif msg %}
+						<div class="card">
+							<p>{{msg}}</p>
+						</div>
+						{% else %}
 						{% for k in ad %}
 						<div class="card">
 							  <div class="card-body">
@@ -44,10 +63,11 @@
 								  <footer class="blockquote-footer"> Last Date: {{k.last_date}} <cite title="Source Title">{{k.course}}</cite></footer>
 
 								</blockquote>
-							  <a href="" class="btn btn-primary text-right">View Ad</a>
+							  <a href="{% url 'admissiondetail' k.id %}" class="btn btn-primary text-right">View Ad</a>
 							  </div>
 						</div>
 						{% endfor %}
+						{% endif %}
 					</div>
 						{% include 'eduskills/sidebar.html' %}
 				</div>
@@ -58,3 +78,37 @@
 		</div>
 {% endblock %}
 
+{% block script %}
+
+ $("#city").change(function (e) {
+        // preventing default actions
+        e.preventDefault();
+        // serialize the data for sending the form data.
+        var serializedData = $(this).val();
+			var mydata = {cityname:serializedData,}
+		let csrftoken = '{{ csrf_token }}'
+        // Ajax Call
+        $.ajax({
+            type: 'POST',
+			headers:{'X-CSRFToken':csrftoken},
+            url: "{% url 'staff_detail' %}",
+            data: mydata,
+			// handle a successful response
+            success: function (data) {
+                // On successful, clear all form data
+			var data1 = JSON.stringify(data);
+
+			obj3=JSON.parse(data1)
+			$("#institute").empty();
+$("#institute").append("<option>--select---</option>")
+			for (var i = 0; i < obj3.length; i++)
+				$("#institute").append("<option value='"+ obj3[i].pk +"'>"+obj3[i].fields.institution_name+"</option>");
+},
+            error: function (data) {
+                // alert non successful response
+                console.log("Error")
+            }
+        })
+    })
+
+{% endblock script %}

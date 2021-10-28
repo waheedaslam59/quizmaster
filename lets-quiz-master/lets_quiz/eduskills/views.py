@@ -408,7 +408,7 @@ def ContactUs(request):
                     msg = "Somethong went wrong"
                     sts = 'danger'
             except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+                return HttpResponse('Invalstid header found.')
         else:
             return HttpResponse('Make sure all fields are entered')
     # programs = ProgramCategory.objects.all()
@@ -417,10 +417,26 @@ def ContactUs(request):
 
 def institutes(request):
     schools = Institutions.objects.all()
-    return render(request, 'eduskills/institutes.html', {'schools': schools})
+    return render(request, 'eduskills/initutes.html', {'schools': schools})
 
 
 def latestadmissions(request):
+    admissions = ""
+    msg = ""
+    if request.method == "POST":
+        cityname = request.POST.get("cityname")
+        institute = request.POST.get("institutes")
+        admissions = Admission.objects.filter(Q(university=institute) & Q(in_progress=True))
+        if admissions:
+            print("admissions open")
+        else:
+            msg = "there is no admission"
     cities = City.objects.all()
-    ad = Admission.objects.filter(in_progress=True)
-    return render(request, 'eduskills/latestadmissions.html', {'cities': cities, 'ad': ad})
+    ad = Admission.objects.filter(in_progress=True).order_by('last_date')
+    return render(request, 'eduskills/latestadmissions.html', {'cities': cities, 'ad': ad, 'admissions': admissions, 'msg': msg})
+
+
+def admissiondetail(request, *args, **kwargs):
+    pkid = kwargs['id']
+    adm = Admission.objects.filter(university=pkid)
+    return render(request, 'eduskills/admissiondetail.html', {'adm': adm})
